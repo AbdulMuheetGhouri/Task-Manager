@@ -1,0 +1,309 @@
+/* Base Styles & Variables */
+:root {
+  /* Light Theme (default) */
+  --primary-bg: #f5f5f5;
+  --secondary-bg: #ffffff;
+  --text-color: #333333;
+  --accent-color: #4a6fa5;
+  --button-bg: #4a6fa5;
+  --button-text: #ffffff;
+  --border-color: #dddddd;
+  --input-bg: #ffffff;
+  --input-text: #333333;
+  --task-bg: #ffffff;
+  --task-text: #333333;
+  --icon-color: #666666;
+  --icon-hover: #4a6fa5;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+
+}
+.light-theme{
+  
+  --primary-bg: #f5f5f5;
+  --secondary-bg: #ffffff;
+  --text-color: #333333;
+  --accent-color: #4a6fa5;
+  --button-bg: #4a6fa5;
+  --button-text: #ffffff;
+  --border-color: #dddddd;
+  --input-bg: #ffffff;
+  --input-text: #333333;
+  --task-bg: #ffffff;
+  --task-text: #333333;
+  --icon-color: #666666;
+  --icon-hover: #4a6fa5;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --accent-color: #bb86fc;
+  --button-bg: #bb86fc;
+  --button-text: #000000;
+  --border-color: #333333;
+  --input-bg: #2d2d2d;
+  --input-text: #e0e0e0;
+  --task-bg: #2d2d2d;
+  --task-text: #e0e0e0;
+  --icon-color: #888888;
+  --icon-hover: #bb86fc;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --error-color: #ff6b6b;
+  --success-color: #69f0ae;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggle h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.toggle button {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  color: var(--accent-color);
+}
+
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.radiobtns {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.add-radio, .show-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="radio"] {
+  accent-color: var(--accent-color);
+  cursor: pointer;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-container input {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+.add-container input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+#add {
+  padding: 0.8rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#add:hover {
+  opacity: 0.9;
+}
+
+.msg {
+  text-align: center;
+  font-size: 0.9rem;
+  height: 1rem;
+  margin-top: 0.5rem;
+}
+
+.show-container {
+  display: none;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.info button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ol {
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+ol li {
+  background-color: var(--task-bg);
+  color: var(--task-text);
+  padding: 1rem;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.task {
+  flex-grow: 1;
+  margin-right: 1rem;
+  word-break: break-word;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icons i {
+  cursor: pointer;
+  color: var(--icon-color);
+  font-size: 1.1rem;
+}
+
+.icons i:hover {
+  transform: scale(1.1);
+}
+
+.fa-trash:hover {
+  color: var(--error-color);
+}
+
+.fa-edit:hover {
+  color: var(--icon-hover);
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  background-color: var(--secondary-bg);
+}
+
+/* Utility Classes */
+.error {
+  color: var(--error-color) !important;
+}
+
+.success {
+  color: var(--success-color) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .radiobtns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  header {
+    padding: 1rem;
+  }
+}
+
+/* Add to your CSS */
+.toggle button {
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.toggle button.active {
+  opacity: 1;
+  font-weight: bold;
+  border: 2px solid var(--accent-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Optional: Default dark theme if system prefers it */
+  body:not(.dark-theme) {
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    /* ... other dark theme variables ... */
+  }
+}

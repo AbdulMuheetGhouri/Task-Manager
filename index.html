@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="icon" href="WhatsApp Image 2025-02-13 at 08.41.18_a7a48088.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+<header>
+  
+  <div class="toggle">
+    <h3>Theme</h3>
+    <button class="light-theme-btn">Light</button>
+    <button class="dark-theme-btn">dark</button>
+  </div>
+</header>
+  
+    <h1>Task Manager</h1>
+
+
+
+  <div class="container">
+
+
+
+    <div class="radiobtns">
+
+      <div class="add-radio">
+        <input type="radio" name="radio" value="add">
+        <label>Add Task</label>
+      </div>
+
+      <div class="show-radio">
+        <input type="radio" name="radio" value="show">
+        <label>Show Task</label>
+      </div>
+    </div>
+
+
+    <div class="add-container">
+
+
+      <input type="text" id="text" placeholder="what needs to be done?">
+      <button id="add">ADD</button>
+      <span class="msg"></span>
+
+    </div>
+
+
+    <div class="show-container">
+    <div class="info">
+        <span class="msg">No Tasks Added yet.</span>
+      <button>Add Task</button>
+    </div>
+      <ol>
+      </ol>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+<footer>
+  Designed by <b>Abdul Muheet Ghouri</b> -2025 &copy; All Rights Reserved.
+</footer>
+<script src="script.js"></script>
+</body>
+
+</html>
