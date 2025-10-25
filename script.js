@@ -2,7 +2,7 @@ let radio_btns = document.querySelectorAll(".radiobtns input");
 let add_container = document.querySelector(".add-container");
 let show_container = document.querySelector(".show-container");
 let btn = document.getElementById("add");
-let task = document.querySelector(".add-container input ");
+let task = document.querySelector(".add-container input");
 let msg = document.querySelector(".add-container .msg");
 let ol = document.querySelector("ol");
 let btn2 = document.querySelector(".show-container button");
@@ -10,6 +10,19 @@ let info_div = document.querySelector(".show-container .info");
 let isEditing = false;
 let currentEditingLi = null;
 
+// Load tasks from localStorage
+const loadTasks = () => {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks && savedTasks !== "li") {
+        ol.innerHTML = savedTasks;
+    }
+    display_info_div();
+}
+
+// Save tasks to localStorage
+const saveTasks = () => {
+    localStorage.setItem("tasks", ol.innerHTML);
+}
 
 // info div
 const display_info_div = () => {
@@ -28,7 +41,7 @@ window.addEventListener("load", () => {
         }
     }
     add_container.style.display = "flex";
-    display_info_div();
+    loadTasks();
 });
 
 // radio buttons functionality
@@ -45,24 +58,20 @@ radio_btns.forEach(e => {
 });
 
 // Tasks Addition/Update functionality
-
 btn.addEventListener("click", () => {
     if (task.value === "") {
         msg.style.color = "red";
         msg.innerText = `Task can't be empty!`;
     } else {
         if (isEditing) {
-            
-            
-            
             currentEditingLi.querySelector('.task').innerText = task.value;
             msg.style.color = "green";
             msg.innerText = `Task Updated Successfully.`;
             
-
             isEditing = false;
             currentEditingLi = null;
             btn.textContent = "ADD";
+            saveTasks();
 
         } 
         else {
@@ -70,16 +79,18 @@ btn.addEventListener("click", () => {
             let li = document.createElement("li");
             li.innerHTML = `
                 <div class="items">
-                    <span class="task ">${task.value}</span>
+                    <abbr title="Mark as Done"><i class="fa-regular fa-circle-check"></i></abbr>
+                    <span class="task">${task.value}</span>
                     <span class="icons">
-                        <abbr title = "Delete" ><i class="fa fa-trash"></i></abbr>
-                        <abbr title= "Edit" ><i class="fa fa-edit"></i></abbr>
+                        <abbr title="Delete"><i class="fa fa-trash"></i></abbr>
+                        <abbr title="Edit"><i class="fa fa-edit"></i></abbr>
                     </span>
                 </div>
             `;
             ol.appendChild(li);
             msg.style.color = "green";
             msg.innerText = `Task Added Successfully.`;
+            saveTasks();
         }
         
         task.value = "";
@@ -103,20 +114,16 @@ btn2.addEventListener("click", () => {
     }
 });
 
-
 // delete and edit functionality
-
 ol.addEventListener("click", (e) => {
     let li = e.target.closest("li");
     
     if (e.target.classList.contains("fa-trash")) {
         li.remove();
         display_info_div();
-        
-
+        saveTasks();
     } 
     else if (e.target.classList.contains("fa-edit")) {
-    
         btn.textContent = "Update";
         radio_btns.forEach(radio => {
             if (radio.value === "add") {
@@ -125,21 +132,21 @@ ol.addEventListener("click", (e) => {
                 show_container.style.display = "none";
             }
         });
-
         
         currentEditingLi = li;
         isEditing = true;
-
         task.value = li.querySelector(".task").innerText;
         task.focus();
-
-        
+    }
+    // Add functionality for mark as done
+    else if (e.target.classList.contains("fa-circle-check")) {
+        const taskElement = li.querySelector(".task");
+        taskElement.classList.toggle("completed");
+        saveTasks();
     }
 });
 
-
 // Theme Toggle Functionality
-// Better selectors (add these classes to your HTML buttons)
 const themeToggle = {
   light: document.querySelector('.light-theme-btn'),
   dark: document.querySelector('.dark-theme-btn')
@@ -147,30 +154,30 @@ const themeToggle = {
 
 // Set initial theme from localStorage or system preference
 function setInitialTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    document.body.classList.add('dark-theme');
-    themeToggle.dark.classList.add('active');
-  } else {
-    themeToggle.light.classList.add('active');
-  }
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.body.classList.add('dark-theme');
+        themeToggle.dark.classList.add('active');
+    } else {
+        themeToggle.light.classList.add('active');
+    }
 }
 
 // Theme switching function
 function switchTheme(theme) {
-  if (theme === 'dark') {
-    document.body.classList.add('dark-theme');
-    localStorage.setItem('theme', 'dark');
-    themeToggle.dark.classList.add('active');
-    themeToggle.light.classList.remove('active');
-  } else {
-    document.body.classList.remove('dark-theme');
-    localStorage.setItem('theme', 'light');
-    themeToggle.light.classList.add('active');
-    themeToggle.dark.classList.remove('active');
-  }
+    if (theme === 'dark') {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.dark.classList.add('active');
+        themeToggle.light.classList.remove('active');
+    } else {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.light.classList.add('active');
+        themeToggle.dark.classList.remove('active');
+    }
 }
 
 // Event listeners

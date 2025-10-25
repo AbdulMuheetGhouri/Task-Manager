@@ -1,63 +1,84 @@
-# Task Manager Web Application
+# 🗂️ Task Manager Web Application
 
-A simple and intuitive task management web application that allows users to add, edit, and delete tasks with a clean user interface and theme customization.
+A **simple, responsive, and user-friendly** web application that helps users efficiently manage their daily tasks.  
+It allows users to **add, edit, delete**, and **mark tasks as completed**, with **theme customization** and **data persistence** through **LocalStorage**.
 
-## Features
+---
 
-- **Add Tasks**: Easily add new tasks to your list
-- **Edit Tasks**: Update existing tasks with a single click
-- **Delete Tasks**: Remove tasks you no longer need
-- **Theme Toggle**: Switch between light and dark themes
-- **Responsive Design**: Works well on both desktop and mobile devices
-- **Persistent Theme**: Remembers your theme preference across sessions
+## 🚀 Features
 
-## Technologies Used
+- ✅ **Add Tasks:** Quickly add new tasks to your to-do list.  
+- ✏️ **Edit Tasks:** Update existing tasks instantly with one click.  
+- 🗑️ **Delete Tasks:** Remove tasks you no longer need.  
+- 🌙 **Theme Toggle:** Switch seamlessly between light and dark modes.  
+- 📱 **Responsive Design:** Fully optimized for desktop and mobile devices.  
+- 💾 **Persistent Data & Theme:** Automatically remembers your tasks and preferred theme across sessions.  
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- Font Awesome (for icons)
+---
 
-## Installation
+## 🧠 Technologies Used
 
-No installation required! Simply open the `index.html` file in any modern web browser.
+- **HTML5** – Structure and content  
+- **CSS3** – Styling and responsive design  
+- **LocalStorage** - Stores the tasks in local storage of the browser, it is saved no matter you refreshes the browser again and again.
+- **JavaScript (ES6)** – Functionality and logic  
+- **Font Awesome** – For icons  
 
-## Usage
+---
 
-1. **Adding a Task**:
-   - Select "Add Task" option
-   - Type your task in the input field
-   - Click "ADD" button or press Enter
+## ⚙️ Installation
 
-2. **Editing a Task**:
-   - Go to "Show Tasks" view
-   - Click the edit (pencil) icon next to the task you want to modify
-   - The task will appear in the input field - make your changes
-   - Click "Update" to save changes
+No installation needed!  
+Just download or clone the repository, and open **`index.html`** in any modern browser.  
+The app runs entirely in your browser — no backend required.
 
-3. **Deleting a Task**:
-   - Go to "Show Tasks" view
-   - Click the trash can icon next to the task you want to remove
+---
 
-4. **Changing Theme**:
-   - Use the theme toggle buttons in the header to switch between light and dark modes
+## 🧭 Usage Guide
 
+### 1️⃣ Adding a Task
+- Type your task in the input field.  
+- Click the **“Add”** button or press **Enter** to save it.
 
-## Future Enhancements
+### 2️⃣ Editing a Task
+- Go to the **“Show Tasks”** view.  
+- Click the ✏️ **Edit** icon next to a task.  
+- The task text will appear in the input field — make changes and click **“Update”**.
 
-- [ ] Add due dates for tasks
-- [ ] Implement task categories or tags
-- [ ] Add task prioritization
-- [ ] Include task completion status
-- [ ] Add local storage for persistent tasks
+### 3️⃣ Deleting a Task
+- Click the 🗑️ **Trash** icon next to the task you want to remove.  
 
+### 4️⃣ Marking as Completed
+- Click the ✅ **Done** icon to mark a task as completed.  
+- Completed tasks get a **strike-through** and **green color**, showing progress visually.  
 
-## Author
+### 5️⃣ Changing Theme
+- Use the **theme toggle buttons** in the header to switch between **Light** and **Dark** themes.  
+- The selected theme automatically saves to **LocalStorage**.
 
-**Abdul Muheet Ghouri** - 2025
+---
 
-## Acknowledgments
+## 🌱 Future Enhancements
 
-- Font Awesome for the awesome icons
-- Modern CSS techniques for styling
-- Stack Overflow community for troubleshooting help
+- [ ] Add due dates for tasks  
+- [ ] Implement task categories or tags  
+- [ ] Add task prioritization (High / Medium / Low)  
+- [ ] Include task filtering and search functionality  
+- [ ] Integrate with backend for cloud sync  
+- [ ] Improve UI animations for smoother experience  
+
+---
+
+## 👨‍💻 Author
+
+**Abdul Muheet Ghouri (2025)**  
+Front-End Developer | Web & Graphic Designer  
+💬 _“Building simple ideas into functional web experiences.”_
+
+---
+
+## 🙏 Acknowledgments
+
+- **Font Awesome** – for the great icon set  
+- **Modern CSS & Flexbox/Grid** – for responsive layout  
+- **Stack Overflow Community** – for development guidance and solutions  
